@@ -5,10 +5,11 @@ const saltRounds = 13;
 
 const signUpNewUser = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, college, email, password } = req.body;
         const hashPass = await bcrypt.hash(password, saltRounds);
         const user = new User({
             name: name,
+            college : college,
             email: email,
             password: hashPass
         });
